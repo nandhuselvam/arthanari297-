@@ -1,0 +1,68 @@
+const resume = {
+  "name": "Arthanari P",
+  "age": 27,
+  "location": "Namakkal",
+  "education": [
+    {
+      "degree": "Bachelor of Engineering",
+      "major": "Computer Science",
+      "institution": "Anna University",
+      "graduation_year": 2019
+    }
+  ],
+  "experience": [
+    {
+      "title": "Software Engineer",
+      "company": "TechCorp",
+      "start_date": "2015-06-01",
+      "end_date": "2018-12-31",
+      "responsibilities": ["Developed web applications", "Collaborated with team members"]
+    },
+    {
+      "title": "Financial Analyst",
+      "company": "FinanceCo",
+      "start_date": "2019-01-01",
+      "end_date": null,
+      "responsibilities": ["Analyzed financial data", "Prepared reports"]
+    }
+  ]
+};
+
+// Using a simple for loop
+for (let i = 0; i < Object.keys(resume).length; i++) {
+  const key = Object.keys(resume)[i];
+  console.log(key + ": " + resume[key]);
+}
+
+// Using for...in loop
+for (let key in resume) {
+  if (resume.hasOwnProperty(key)) {
+    console.log(key + ": " + resume[key]);
+  }
+}
+
+// Using for...of loop
+const keys = Object.keys(resume);
+for (let key of keys) {
+  console.log(key + ": " + resume[key]);
+}
+
+// Using forEach for arrays (like education and experience)
+resume.education.forEach(edu => {
+  console.log("Degree: " + edu.degree);
+  console.log("Major: " + edu.major);
+  console.log("Institution: " + edu.institution);
+  console.log("Graduation Year: " + edu.graduation_year);
+});
+
+resume.experience.forEach(exp => {
+  console.log("Title: " + exp.title);
+  console.log("Company: " + exp.company);
+  console.log("Start Date: " + exp.start_date);
+  console.log("End Date: " + (exp.end_date ? exp.end_date : "Present"));
+  console.log("Responsibilities:");
+  exp.responsibilities.forEach(responsibility => {
+    console.log("- " + responsibility);
+  });
+  console.log("\n");
+});
